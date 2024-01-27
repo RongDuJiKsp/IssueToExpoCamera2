@@ -1,7 +1,11 @@
 import {Button, View} from 'react-native';
 import {Camera} from "expo-camera";
+import {useEffect} from "react";
 
 export default function App() {
+    useEffect(() => {
+        Camera.requestCameraPermissionsAsync().then();
+    }, []);
     return (
         <View>
             <Camera barCodeScannerSettings={{barCodeTypes: ["qr"]}}
